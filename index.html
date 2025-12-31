@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire New Year Event 2026</title>
+    
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://pl28369015.effectivegatecpm.com/3c/7a/b6/3c7ab65ac983c32f48f05197c1ccac0a.js"></script>
+    <style>
+        :root {
+            --primary: #FFAA00; 
+            --secondary: #1a1a1a;
+            --bg: #050505;
+            --text: #ffffff;
+            --whatsapp: #25D366;
+            --messenger: #0084FF;
+            --red: #ff3333;
+            --green: #00cc00;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at center, #2e1500 0%, #000000 80%);
+            overflow-x: hidden;
+        }
+
+        /* === LOGO === */
+        .app-logo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.6);
+            z-index: 1000;
+            object-fit: cover;
+        }
+
+        .app-container {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px;
+            padding-top: 80px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .top-nav { position: absolute; top: 20px; right: 20px; z-index: 1000; }
+        .lang-btn {
+            background: rgba(0,0,0,0.6); border: 1px solid var(--primary); color: var(--primary);
+            padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-weight: bold;
+        }
+
+        .screen { display: none; width: 100%; animation: fadeIn 0.5s ease-in-out; }
+        .screen.active { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+
+        /* === BANNER === */
+        .banner {
+            background: linear-gradient(180deg, #440000, #aa0000);
+            width: 100%; padding: 20px 10px; border-radius: 15px;
+            border: 2px solid #ffcc00; box-shadow: 0 0 25px rgba(255, 69, 0, 0.5); margin-bottom: 20px;
+        }
+        .ff-title {
+            font-family: 'Arial Black', Impact, sans-serif; font-size: 2.2rem; font-style: italic;
+            background: -webkit-linear-gradient(#ffee00, #ff8800); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; text-shadow: 2px 2px 0px rgba(255,255,255,0.2);
+            margin-bottom: 5px; letter-spacing: 1px; text-transform: uppercase;
+        }
+        .sub-title {
+            color: #fff; font-size: 1rem; font-weight: bold;
+            background: rgba(0,0,0,0.4); padding: 5px 10px; border-radius: 5px; display: inline-block;
+        }
+
+        /* BUTTONS */
+        .btn-primary {
+            background: linear-gradient(90deg, #ffaa00, #ff4500); color: #fff; border: none; padding: 14px 40px; 
+            font-size: 1.2rem; font-weight: bold; font-style: italic; border-radius: 5px; cursor: pointer; 
+            width: 100%; max-width: 320px; box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4); 
+            text-transform: uppercase; transform: skewX(-10deg);
+        }
+        .btn-primary span { display: block; transform: skewX(10deg); }
+        .btn-primary:active { transform: skewX(-10deg) scale(0.95); }
+
+        .btn-option {
+            background: #222; color: #ddd; border: 1px solid #444; padding: 12px;
+            width: 100%; margin-bottom: 8px; border-radius: 5px; 
+            cursor: pointer; text-align: left; font-size: 1rem; transition: 0.2s;
+        }
+        
+        /* Correct/Wrong Styles */
+        .btn-correct { background: var(--green) !important; color: white !important; border-color: var(--green) !important; }
+        .btn-wrong { background: var(--red) !important; color: white !important; border-color: var(--red) !important; }
+
+        .select-box, input {
+            background: #1a1a1a; border: 1px solid var(--primary); color: white;
+            padding: 10px; border-radius: 5px; width: 100%; max-width: 250px;
+            font-size: 1rem; text-align: center; outline: none; margin-bottom: 15px;
+        }
+
+        /* SHARE SECTION */
+        .share-grid { display: flex; gap: 10px; width: 100%; max-width: 400px; justify-content: center; margin-top: 10px; }
+        .share-btn {
+            border: none; padding: 12px; font-size: 0.9rem; font-weight: bold; 
+            border-radius: 50px; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
+            color: white; transition: transform 0.2s;
+        }
+        .share-btn:active { transform: scale(0.95); }
+        .share-btn:disabled { opacity: 0.5; cursor: not-allowed; } /* When Verifying */
+        
+        .wa-btn { background-color: var(--whatsapp); box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4); }
+        .msg-btn { background-color: var(--messenger); box-shadow: 0 4px 10px rgba(0, 132, 255, 0.4); }
+
+        /* PROGRESS BAR */
+        .progress-container { width: 100%; background: #333; height: 10px; border-radius: 10px; margin-bottom: 15px; position: relative; overflow: hidden;}
+        .progress-fill { height: 100%; background: #00ff00; width: 0%; transition: width 0.5s ease; }
+        
+        /* Loading Animation (Stripes) */
+        .progress-loading {
+            background: repeating-linear-gradient(45deg, #FF9900, #FF9900 10px, #FFCC00 10px, #FFCC00 20px);
+            animation: moveStripe 1s linear infinite;
+            width: 100% !important; /* Full width when loading */
+        }
+        @keyframes moveStripe { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
+
+        .result-card {
+            background: rgba(0,0,0,0.8); border: 2px solid var(--primary); padding: 20px;
+            border-radius: 10px; width: 100%;
+        }
+
+        /* Feedback Text */
+        #answer-feedback {
+            font-weight: bold; font-size: 1.2rem; min-height: 30px; margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,1);
+        }
+
+        footer { margin-top: auto; padding: 15px; color: #555; font-size: 0.7rem; text-align: center; }
+        .hidden { display: none !important; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- Logo -->
+    <img src="https://i.ibb.co.com/m5wJqHSJ/483528c77a19be6735661c5f68a749ea.jpg" alt="FF Logo" class="app-logo" id="main-logo">
+
+    <div class="top-nav">
+        <button class="lang-btn" onclick="toggleLanguage()">🌐 English / বাংলা</button>
+    </div>
+
+    <div class="app-container">
+
+        <!-- 1. START SCREEN -->
+        <div id="screen-start" class="screen active">
+            <div class="banner">
+                <h1 class="ff-title">GARENA FREE FIRE</h1>
+                <div class="sub-title" id="banner-sub-title">HAPPY NEW YEAR 2026 EVENT</div>
+                <p id="banner-desc" style="margin-top: 10px; color: #ddd; font-size: 0.9rem;">
+                    Win 200 Diamonds by answering simple Free Fire questions!
+                </p>
+            </div>
+
+            <p id="label-select" style="color: #aaa; margin-bottom: 5px;">Select Questions:</p>
+            <select id="quiz-length" class="select-box">
+                <option value="10">10 Questions</option>
+                <option value="20">20 Questions</option>
+                <option value="30">30 Questions</option>
+            </select>
+
+            <button class="btn-primary" onclick="startQuiz()"><span>START NOW</span></button>
+        </div>
+
+        <!-- 2. QUIZ SCREEN -->
+        <div id="screen-quiz" class="screen">
+            <div class="progress-container"><div class="progress-fill" id="quiz-progress" style="background: var(--primary);"></div></div>
+            <h3 id="q-counter" style="color: var(--primary);">Question 1/10</h3>
+            <h2 id="question-text" style="margin: 5px 0 15px; min-height: 40px;">Loading...</h2>
+            
+            <!-- Feedback Text (Correct/Wrong) -->
+            <p id="answer-feedback"></p>
+
+            <div id="options-container" style="width: 100%;"></div>
+        </div>
+
+        <!-- 3. UID SCREEN -->
+        <div id="screen-uid" class="screen">
+            <div class="banner">
+                <h1 class="ff-title" style="font-size: 1.8rem;">PLAYER ID</h1>
+            </div>
+            <p id="uid-desc">Enter your Free Fire UID to receive the gift.</p>
+            <input type="number" id="uid-input" placeholder="UID (e.g. 24567891)" required>
+            <button class="btn-primary" onclick="confirmUID()"><span>CONFIRM</span></button>
+        </div>
+
+        <!-- 4. SHARE SCREEN -->
+        <div id="screen-share" class="screen">
+            <div class="banner" style="border-color: #00ff00;">
+                <h1 class="ff-title" style="font-size: 1.5rem; background: -webkit-linear-gradient(#00ff00, #005500); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">CONGRATULATIONS</h1>
+            </div>
+            
+            <p id="share-msg-1">UID Verified! You are eligible for 200 Diamonds.</p>
+            <p id="share-msg-2" style="color: #bbb; margin: 15px 0; font-size: 0.9rem;">
+                Share this event with friends to unlock the claim button.
+            </p>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-fill" id="share-progress-bar"></div>
+            </div>
+            
+            <!-- Status Text -->
+            <p id="share-status" style="font-weight: bold; color: #ffcc00; margin-bottom: 5px; height: 25px;"></p>
+            <p id="share-percent" style="font-size: 1.2rem; font-weight: bold;">0% Unlocked</p>
+
+            <div class="share-grid">
+                <button class="share-btn wa-btn" id="btn-wa" onclick="handleShare('wa')">
+                    WhatsApp 💬
+                </button>
+                <button class="share-btn msg-btn" id="btn-fb" onclick="handleShare('fb')">
+                    Messenger ⚡
+                </button>
+            </div>
+
+            <button class="btn-primary hidden" id="btn-claim" onclick="showResult()" style="margin-top: 20px;"><span>CLAIM DIAMONDS 💎</span></button>
+        </div>
+
+        <!-- 5. RESULT SCREEN -->
+        <div id="screen-result" class="screen">
+            <div class="result-card">
+                <h2 style="color: var(--primary); text-transform: uppercase;">Request Submitted</h2>
+                <h1 style="font-size: 3rem; margin: 10px 0;">💎 200</h1>
+                <p id="res-msg">
+                    Happy New Year 2026! Your gift request has been sent to Garena Server. Wait 24 hours.
+                </p>
+            </div>
+            <br>
+            <button class="btn-primary" onclick="location.reload()"><span>HOME</span></button>
+        </div>
+
+    </div>
+
+    <footer>
+        <div id="disclaimer">⚠️ Play the quiz and win gifts to celebrate the New Year 2026</div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let currentLang = 'bn'; 
+        let quizList = [];
+        let qIndex = 0;
+        let totalQ = 10;
+        let shareCount = 0;
+        let isVerifying = false;
+
+        // NOTE: The FIRST option (index 0) in optsEn/optsBn is always the CORRECT Answer.
+        // We will shuffle them automatically before displaying.
+        const fullQuestionPool = [
+            { en: "Who is the DJ character?", bn: "ডিজে অলোক কোন গেমের ক্যারেক্টার?", optsEn: ["Free Fire", "PUBG", "COD", "Fortnite"], optsBn: ["ফ্রি ফায়ার", "পাবজি", "কল অফ ডিউটি", "ফোর্টনাইট"] },
+            { en: "Best gun for long range?", bn: "লং রেঞ্জের জন্য সেরা গান কোনটি?", optsEn: ["AWM", "MP40", "M1887", "Pan"], optsBn: ["AWM", "MP40", "M1887", "প্যান"] },
+            { en: "Which map has 'Clock Tower'?", bn: "'ক্লক টাওয়ার' কোন ম্যাপে আছে?", optsEn: ["Bermuda", "Purgatory", "Kalahari", "Alpine"], optsBn: ["বারমুডা", "পার্গেটোরি", "কালাহারি", "আলপাইন"] },
+            { en: "Max players in a classic match?", bn: "ক্লাসিক ম্যাচে সর্বোচ্চ কতজন প্লেয়ার থাকে?", optsEn: ["50", "100", "60", "40"], optsBn: ["৫০", "১০০", "৬০", "৪০"] },
+            { en: "Which item creates a shield?", bn: "কোন আইটেমটি দেওয়াল তৈরি করে?", optsEn: ["Gloo Wall", "Grenade", "Medkit", "Mushroom"], optsBn: ["গ্লু ওয়াল", "গ্রেনেড", "মেডকিট", "মাশরুম"] },
+            { en: "What gives you EP?", bn: " ইপি (EP) কোথা থেকে পাওয়া যায়?", optsEn: ["Mushroom", "Medkit", "Ammo", "Bag"], optsBn: ["মাশরুম", "মেডকিট", "এমো", "ব্যাগ"] },
+            { en: "Kelly's ability is?", bn: " কেলি (Kelly) এর কাজ কি?", optsEn: ["Running Fast", "Healing", "Damage", "Hiding"], optsBn: ["দ্রুত দৌড়ানো", "হিলিং", "ড্যামেজ", "লুকানো"] },
+            { en: "Which is a pistol?", bn: "নিচের কোনটি পিস্তল?", optsEn: ["Desert Eagle", "AK47", "Groza", "Scar"], optsBn: ["ডেজার্ট ইগল", "AK47", "গ্রোজা", "স্কার"] },
+            { en: "Wukong turns into what?", bn: "উকং (Wukong) কিসে পরিণত হয়?", optsEn: ["Bush", "Rock", "Car", "Wall"], optsBn: ["ঝোপ", "পাথর", "গাড়ি", "দেওয়াল"] },
+            { en: "Headshot damage color?", bn: "হেডশট মারলে কোন রঙের ড্যামেজ দেখায়?", optsEn: ["Red", "Yellow", "White", "Blue"], optsBn: ["লাল", "হলুদ", "সাদা", "নীল"] },
+            { en: "Which pet produces Gloo Wall?", bn: "কোন পেট গ্লু ওয়াল দেয়?", optsEn: ["Mr. Waggor", "Panda", "Kitty", "Eagle"], optsBn: ["মি: ওয়াগর", "পান্ডা", "কিটি", "ঈগল"] },
+            { en: "Factory is in which map?", bn: "ফ্যাক্টরি কোন ম্যাপে অবস্থিত?", optsEn: ["Bermuda", "Nextra", "Alpine", "Purgatory"], optsBn: ["বারমুডা", "নেক্সটরা", "আলপাইন", "পার্গেটোরি"] },
+            { en: "Highest level of vest?", bn: "ভেস্ট এর সর্বোচ্চ লেভেল কত?", optsEn: ["Level 4", "Level 3", "Level 5", "Level 2"], optsBn: ["লেভেল ৪", "লেভেল ৩", "লেভেল ৫", "লেভেল ২"] },
+            { en: "Which currency is bought with money?", bn: "টাকা দিয়ে কোন কারেন্সি কিনতে হয়?", optsEn: ["Diamond", "Gold", "Token", "Star"], optsBn: ["ডায়মন্ড", "গোল্ড", "টোকেন", "স্টার"] },
+            { en: "Chrono creates a...?", bn: "ক্রোনো (Chrono) কি তৈরি করে?", optsEn: ["Force Field", "Fire", "Smoke", "Water"], optsBn: ["সুরক্ষা বলয়", "আগুন", "ধোঁয়া", "পানি"] },
+            { en: "M1887 is which type of gun?", bn: "M1887 কোন ধরণের গান?", optsEn: ["Shotgun", "Sniper", "SMG", "Rifle"], optsBn: ["শটগান", "স্নাইপার", "SMG", "রাইফেল"] },
+            { en: "Who is the richest character?", bn: "সবচেয়ে ধনী ক্যারেক্টার কে?", optsEn: ["Kla", "Alok", "Caroline", "Andrew"], optsBn: ["ক্ল", "অলোক", "ক্যারোলিন", "এন্ড্রু"] },
+            { en: "Danger zone color on map?", bn: "ম্যাপে ডেঞ্জার জোন এর রং কি?", optsEn: ["Red", "Green", "Blue", "Yellow"], optsBn: ["লাল", "সবুজ", "নীল", "হলুদ"] },
+            { en: "Safe zone shrinks over...?", bn: "সেফ জোন কিসের সাথে ছোট হয়?", optsEn: ["Time", "Kills", "Running", "Jumping"], optsBn: ["সময়", "কিল", "দৌড়ানো", "লাফানো"] },
+            { en: "How many weapon slots usually?", bn: "সাধারণত কয়টি গান নেওয়া যায়?", optsEn: ["3", "1", "5", "4"], optsBn: ["৩ টি", "১ টি", "৫ টি", "৪ টি"] },
+            { en: "Which vehicle runs on water?", bn: "পানিতে চলে কোন গাড়ি?", optsEn: ["Amphibious", "Jeep", "Bike", "Truck"], optsBn: ["উভচর গাড়ি", "জিপ", "বাইক", "ট্রাক"] },
+            { en: "Revival point is used for?", bn: "রিভাইভাল পয়েন্ট কি কাজে লাগে?", optsEn: ["Revive Teammate", "Get Guns", "Kill Enemy", "Hide"], optsBn: ["টিমেট বাঁচানো", "গান নেওয়া", "শত্রু মারা", "লুকানো"] },
+            { en: "Pan can protect from?", bn: "প্যান (Pan) কি আটকাতে পারে?", optsEn: ["Bullets", "Bomb", "Zone", "Fall Damage"], optsBn: ["গুলি", "বোমা", "জোন", "পড়ে যাওয়া"] },
+            { en: "Clash Squad has how many rounds?", bn: "ক্লাশ স্কোয়াডে জেতার জন্য কয় রাউন্ড লাগে?", optsEn: ["4", "7", "3", "5"], optsBn: ["৪", "৭", "৩", "৫"] },
+            { en: "Which character is a Hacker?", bn: "হ্যাকার ক্যারেক্টার কে?", optsEn: ["Moco", "Kelly", "Hayato", "Maxim"], optsBn: ["মোকো", "কেলি", "হায়াতো", "ম্যাক্সিম"] },
+            { en: "Bermuda Remastered is a...?", bn: "বারমুডা রিমাস্টার্ড কি?", optsEn: ["Map", "Gun", "Pet", "Dress"], optsBn: ["ম্যাপ", "গান", "পেট", "ড্রেস"] },
+            { en: "Which gun uses HG ammo?", bn: "HG এমো কোন গানে লাগে?", optsEn: ["Launcher", "AWM", "Pistol", "Shotgun"], optsBn: ["লঞ্চার", "AWM", "পিস্তল", "শটগান"] },
+            { en: "Vending Machine gives?", bn: "ভেন্ডিং মেশিন থেকে কি পাওয়া যায়?", optsEn: ["Guns & Items", "Diamond", "Characters", "Pets"], optsBn: ["গান ও আইটেম", "ডায়মন্ড", "ক্যারেক্টার", "পেট"] },
+            { en: "Maxim eats...?", bn: "ম্যাক্সিম (Maxim) কি খায়?", optsEn: ["Mushroom", "Apple", "Pizza", "Burger"], optsBn: ["মাশরুম", "আপেল", "পিৎজা", "বার্গার"] },
+            { en: "Booyah means?", bn: "বুয়াহ (Booyah) মানে কি?", optsEn: ["Victory", "Defeat", "Draw", "Start"], optsBn: ["বিজয়", "পরাজয়", "ড্র", "শুরু"] }
+        ];
+
+        const txt = {
+            en: { 
+                sub: "HAPPY NEW YEAR 2026 EVENT", 
+                desc: "Win 200 Diamonds by answering simple Free Fire questions!", 
+                start: "START NOW", 
+                uid: "Enter your Free Fire UID to receive the gift.", 
+                share1: "UID Verified! You are eligible for 200 Diamonds.",
+                share2: "Share this event with friends on WhatsApp or Messenger to unlock the claim button.",
+                claim: "CLAIM DIAMONDS 💎", 
+                wait: "Happy New Year 2026! Your gift request has been sent to Garena Server. Wait 24 hours.",
+                invalid: "Invalid UID",
+                verifying: "Verifying Share...",
+                success: "Success!",
+                shareText: "🔥 Free Fire New Year Gift 2026! I got 200 Diamonds instantly. Claim yours now: ",
+                correct: "Correct! ✅",
+                wrong: "Wrong Answer! ❌"
+            },
+            bn: { 
+                sub: "হ্যাপি নিউ ইয়ার ২০২৬ ইভেন্ট", 
+                desc: "সহজ ফ্রি ফায়ার কুইজ খেলে জিতে নিন ২০০ ডায়মন্ড গিফট!", 
+                start: "শুরু করুন", 
+                uid: "গিফট পেতে আপনার গেমের UID দিন।", 
+                share1: "UID ভেরিফাইড! আপনি ২০০ ডায়মন্ডের জন্য নির্বাচিত হয়েছেন।",
+                share2: "আপনার ২০০ ডায়মন্ড আনলক করতে এই সুখবরটি হোয়াটসঅ্যাপ বা মেসেঞ্জারে শেয়ার করুন।",
+                claim: "ডায়মন্ড নিন 💎", 
+                wait: "হ্যাপি নিউ ইয়ার ২০২৬! আপনার গিফট প্রসেসিং এ আছে। অনুগ্রহ করে ২৪ ঘন্টা অপেক্ষা করুন।",
+                invalid: "সঠিক UID দিন",
+                verifying: "শেয়ার যাচাই করা হচ্ছে...",
+                success: "সফল হয়েছে!",
+                shareText: "🔥 ফ্রি ফায়ার নিউ ইয়ার গিফট! আমি ২০২৬ ইভেন্টে ২০০ ডায়মন্ড পেয়েছি। আপনিও নিন: ",
+                correct: "সঠিক উত্তর! ✅",
+                wrong: "ভুল উত্তর! ❌"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'bn' : 'en';
+            updateText();
+        }
+
+        function updateText() {
+            const t = txt[currentLang];
+            document.getElementById('banner-sub-title').innerText = t.sub;
+            document.getElementById('banner-desc').innerText = t.desc;
+            document.querySelector('#screen-start .btn-primary span').innerText = t.start;
+            document.getElementById('uid-desc').innerText = t.uid;
+            document.getElementById('share-msg-1').innerText = t.share1;
+            document.getElementById('share-msg-2').innerText = t.share2;
+            document.querySelector('#btn-claim span').innerText = t.claim;
+            document.getElementById('res-msg').innerText = t.wait;
+            if(document.getElementById('screen-quiz').classList.contains('active')) renderQuestion();
+        }
+
+        function switchScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function startQuiz() {
+            totalQ = parseInt(document.getElementById('quiz-length').value);
+            qIndex = 0;
+            let shuffled = [...fullQuestionPool].sort(() => 0.5 - Math.random());
+            quizList = shuffled.slice(0, totalQ);
+            switchScreen('screen-quiz');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = quizList[qIndex];
+            const qText = currentLang === 'en' ? q.en : q.bn;
+            const rawOpts = currentLang === 'en' ? q.optsEn : q.optsBn;
+            
+            document.getElementById('q-counter').innerText = `${currentLang === 'en' ? 'Question' : 'প্রশ্ন'} ${qIndex + 1}/${totalQ}`;
+            document.getElementById('question-text').innerText = qText;
+            document.getElementById('quiz-progress').style.width = ((qIndex)/totalQ)*100 + '%';
+            document.getElementById('answer-feedback').innerText = ""; 
+
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            
+            let optsWithData = rawOpts.map((text, index) => ({
+                text: text,
+                isCorrect: index === 0 // First option is correct
+            }));
+
+            // Shuffle options for display
+            optsWithData.sort(() => 0.5 - Math.random());
+
+            optsWithData.forEach(optObj => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-option';
+                btn.innerText = optObj.text;
+                
+                btn.onclick = function() {
+                    const allBtns = document.querySelectorAll('.btn-option');
+                    allBtns.forEach(b => b.disabled = true);
+                    const feedback = document.getElementById('answer-feedback');
+
+                    if(optObj.isCorrect) {
+                        this.classList.add('btn-correct');
+                        feedback.innerText = txt[currentLang].correct;
+                        feedback.style.color = "#00cc00";
+                    } else {
+                        this.classList.add('btn-wrong');
+                        feedback.innerText = txt[currentLang].wrong;
+                        feedback.style.color = "#ff3333";
+                    }
+                    
+                    setTimeout(() => {
+                        qIndex++;
+                        if (qIndex < totalQ) { renderQuestion(); } 
+                        else { switchScreen('screen-uid'); }
+                    }, 800);
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function confirmUID() {
+            const val = document.getElementById('uid-input').value;
+            if(val.length < 5) return alert(txt[currentLang].invalid);
+            switchScreen('screen-share');
+        }
+
+        // === REALISTIC SHARE SIMULATION ===
+        function handleShare(platform) {
+            if(isVerifying) return; // Block double clicks
+            
+            // 1. Open the App Immediately
+            const siteLink = window.location.href; 
+            const msg = txt[currentLang].shareText + siteLink;
+            const encodedMsg = encodeURIComponent(msg);
+            
+            if(platform === 'wa') {
+                window.open(`https://wa.me/?text=${encodedMsg}`, '_blank');
+            } else if(platform === 'fb') {
+                window.location.href = `fb-messenger://share/?link=${encodeURIComponent(siteLink)}&app_id=123456789`;
+                setTimeout(() => {
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(siteLink)}`, '_blank');
+                }, 1000);
+            }
+
+            // 2. Start "Verifying" Process (Wait for message to be sent)
+            isVerifying = true;
+            document.getElementById('btn-wa').disabled = true;
+            document.getElementById('btn-fb').disabled = true;
+            
+            const statusEl = document.getElementById('share-status');
+            const bar = document.getElementById('share-progress-bar');
+            const percentText = document.getElementById('share-percent');
+            
+            // Show Loading UI
+            statusEl.innerText = txt[currentLang].verifying;
+            bar.classList.add('progress-loading'); // Start stripes animation
+            
+            // 3. WAIT 6 SECONDS (Simulating time taken to send message)
+            setTimeout(() => {
+                shareCount++;
+                const percent = Math.min(shareCount * 20, 100);
+                
+                // Update UI after delay
+                bar.classList.remove('progress-loading');
+                bar.style.width = percent + '%';
+                percentText.innerText = percent + '% Unlocked';
+                statusEl.innerText = txt[currentLang].success;
+                
+                // Reset Buttons
+                isVerifying = false;
+                document.getElementById('btn-wa').disabled = false;
+                document.getElementById('btn-fb').disabled = false;
+                
+                setTimeout(() => { statusEl.innerText = ""; }, 2000);
+
+                // If 100% - Show Claim Button
+                if(percent >= 100) {
+                    document.getElementById('btn-claim').classList.remove('hidden');
+                    document.querySelector('.share-grid').style.display = 'none';
+                    statusEl.innerText = "Task Completed! 🎉";
+                }
+            }, 6000); // 6 Seconds Delay
+        }
+
+        function showResult() {
+            switchScreen('screen-result');
+            const end = Date.now() + 3000;
+            (function frame() {
+                confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#FFAA00', '#FF0000'] });
+                confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#FFAA00', '#FF0000'] });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            }());
+        }
+        
+        updateText();
+    </script>
+</body>
+</html>
+<script>
